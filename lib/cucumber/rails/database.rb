@@ -8,6 +8,8 @@ module Cucumber
 
       class << self
 
+        attr_accessor :autorun_database_cleaner
+
         def javascript_strategy=(args)
           strategy, *strategy_opts = args
           strategy_type =
@@ -100,6 +102,7 @@ module Cucumber
       end
 
       Database.javascript_strategy = :truncation
+      Database.autorun_database_cleaner = true
     end
   end
 end
